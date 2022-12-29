@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+<style>
+    #name {
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 28px;
+  line-height: 100px;
+}
+</style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <link rel="icon" href="/static/images/favicon.ico" type="image/ico"/>
+
+    <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/custom.min.css' %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/ss.css' %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/popupmodel.css' %}"/>
+
+
+    <link href="{%static 'fonts/roboto/Roboto-Bold.woff' %}" rel="stylesheet">
+    <link href="{%static 'fonts/roboto/Roboto-Bold.woff2' %}" rel="stylesheet">
+    <link href="{%static 'fonts/roboto/Roboto-Light.woff' %}" rel="stylesheet">
+    <link href="{%static 'fonts/roboto/Roboto-Light.woff2' %}" rel="stylesheet">
+    <link href="{%static 'fonts/roboto/Roboto-Medium.woff' %}" rel="stylesheet">
+    <link href="{%static 'fonts/roboto/Roboto-Medium.woff2' %}" rel="stylesheet">
+    <link href="{%static 'fonts/roboto/Roboto-Regular.woff' %}" rel="stylesheet">
+    <link href="{%static 'fonts/roboto/Roboto-Regular.woff2' %}" rel="stylesheet">
+    <link href="{%static 'fonts/roboto/Roboto-Thin.woff' %}" rel="stylesheet">
+    <link href="{%static 'fonts/roboto/Roboto-Thin.woff2' %}" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+
+
+        <div class="col-md-3 left_col" style="position:fixed">
+            <div class="left_col scroll-view">
+
+                <div class="clearfix"></div>
+
+                <!-- menu profile quick info -->
+                <div class="profile clearfix">
+                    <div class="profile_info" style="padding-left:10px">
+                        <span>Welcome,</span>
+                        <h1>Admin</h1>
+                    </div>
+                </div>
+                <!-- /menu profile quick info -->
+
+                <br/>
+
+                <!-- sidebar menu -->
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+<div class="menu_section">
+                        <ul class="nav side-menu">
+                            <li><a href="/prog/additem"><i class="fa fa-tasks"></i>Add Item </a></li>
+                            <li><a href="/prog/viewitem"><i class="fa fa-tasks"></i>view Item </a></li>
+                        <li><a href="/prog/addchef"><i class="fa fa-home"></i>Add Chef</a></li>
+                         <li><a href="/prog/viewchef"><i class="fa fa-home"></i>View Chef</a></li>
+
+                            <li><a href="/prog/vieworder"><i class="fa fa-history"></i> View Order </a>
+                            </li>
+  <li><a href="/prog/viewcustomer"><i class="fa fa-history"></i> View Customer </a>
+                            </li>
+
+
+
+                            <li><a href="/prog/logout"><i class="fa fa-sign-out"></i> Logout </a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+                <!-- /sidebar menu -->
+
+            </div>
+        </div>
+
+        <!-- top navigation -->
+
+        <div class="top_nav">
+            <div class="nav_menu">
+                <nav>
+                    <div class="nav toggle" style="height:55px">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+
+                </nav>
+            </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+
+                    {% for data in qdata %}
+
+         <div class="form-group">
+    <label for="chefid">CHEF ID:</label>
+    <input type="text" class="form-control" id="chefid" value="{{data.chefid}}" readonly="readonly">
+  </div>
+  <div class="form-group">
+    <label for="chefname">CHEF NAME:</label>
+    <input type="text" class="form-control" id="chefname" value="{{data.chefname}}">
+  </div>
+  <div class="form-group">
+<label for="category">CATEGORY:</label>
+    <input type="text" class="form-control" id="category" value="{{data.category}}">  </div>
+  <button type="submit" class="btn btn-info" id="updatecf">Update Chef</button>
+{% endfor %}
+
+            </div>
+         <footer>
+
+        <div class="clearfix"></div>
+    </footer>
+    <!-- /footer content -->
+</div>
+</div>
+
+
+<!-- code for pop up menu-->
+
+
+<!-- modal -->
+<div id="fsModal"
+     class="modal animated bounceIn"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel"
+     aria-hidden="true">
+
+    <!-- dialog -->
+    <div class="modal-dialog">
+
+        <!-- content -->
+        <div class="modal-content">
+
+
+            <!-- body -->
+            <div class="modal-body">
+
+            </div>
+            <!-- body -->
+
+
+        </div>
+        <!-- content -->
+
+    </div>
+    <!-- dialog -->
+
+</div>
+<!-- modal -->
+
+
+<script type="text/javascript" src="{%static 'js/jquery.min.js'%}"></script>
+<script type="text/javascript" src="{%static 'js/bootstrap.min.js'%}"></script>
+<script type="text/javascript" src="{%static 'js/custom.min.js'%}"></script>
+<script type="text/javascript" src="{%static 'js/updatechef.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/loginjs.js' %}"></script>
+<script type="text/javascript" src="{%static 'js/popupjs.js'%}"></script>
+
+</body>
+</html>

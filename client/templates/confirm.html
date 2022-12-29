@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm Order</title>
+</head>
+<table border="1">
+{% for key in itemlist %}
+    {% for item in querydata %}
+        {% if key == item.itemno %}
+
+    <tr>
+        <td>
+           {{ item.itemno}}
+        </td>
+
+        <td>
+            {{item.itemname}}
+        </td>
+
+        <td>
+            {{item.category}}
+        </td>
+
+        <td>
+            <img src="{{item.image}}" height="150" width="150" />
+        </td>
+        <td>
+            {{item.price}}
+        </td>
+        <td>
+
+        </td>
+    </tr>
+
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+    </table>
+    </center>
+</body>
+
+</html>

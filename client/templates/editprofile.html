@@ -1,0 +1,241 @@
+{%load static%}
+<html lang="en">
+<head>
+    <style>
+    #name {
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 28px;
+  line-height: 100px;
+
+    </style>
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <link rel="icon" href="/static/images/favicon.ico" type="image/ico"/>
+
+    <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/custom.min.css' %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/ss.css' %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/popupmodel.css' %}"/>
+
+
+    <link href="{%static 'fonts/roboto/Roboto-Bold.woff' %}" rel="stylesheet">
+    <link href="{%static 'fonts/roboto/Roboto-Bold.woff2' %}" rel="stylesheet">
+    <link href="{%static 'fonts/roboto/Roboto-Light.woff' %}" rel="stylesheet">
+    <link href="{%static 'fonts/roboto/Roboto-Light.woff2' %}" rel="stylesheet">
+    <link href="{%static 'fonts/roboto/Roboto-Medium.woff' %}" rel="stylesheet">
+    <link href="{%static 'fonts/roboto/Roboto-Medium.woff2' %}" rel="stylesheet">
+    <link href="{%static 'fonts/roboto/Roboto-Regular.woff' %}" rel="stylesheet">
+    <link href="{%static 'fonts/roboto/Roboto-Regular.woff2' %}" rel="stylesheet">
+    <link href="{%static 'fonts/roboto/Roboto-Thin.woff' %}" rel="stylesheet">
+    <link href="{%static 'fonts/roboto/Roboto-Thin.woff2' %}" rel="stylesheet">
+
+
+    <script type="text/template" id="videoTemplate" class="o">
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+                <div class="men-pro-item simpleCart_shelfItem">
+                    <div class="men-thumb-item">
+                        <img src="itemimagetag" alt="" height="200px" width="265px"
+                             class="pro-image-front">
+                        <img src="itemimagetag2" alt="" height="200px" width="265px"
+                             class="pro-image-back">
+                        <div class="men-cart-pro">
+                            <div class="inner-men-cart-pro">
+                                <a href="#" class="infobtn link-product-add-cart "
+                                   data-toggle="modal"
+                                   data-idd="itemnumbertag" data-target="#fsModal">Quick View</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="item-info-product ">
+                        <h4><a href="#">itemnametag</a></h4>
+                        <div class="info-product-price">
+                            <span class="item_price">Rs.itempricetag</span>
+                        </div>
+                        <div class="info-product-price">
+                            <span class="item_price">itemcategorytag</span>
+                        </div>
+
+
+                        <div class="info-product-price">
+											<span class="item_price">
+
+                                        <div class="pluseminus container " data-n="itemnumbertag" style="display:none">
+                                        <div class="input-group" style="padding-bottom:0px">
+                                    <span class="input-group-btn" style="padding-bottom:0px">
+
+
+
+
+
+                                        <!--<button type="button"-->
+                                        <!--class="btn-dec-class quantity-left-minus btn btn-danger btn-number"-->
+                                        <!--data-type="minus" data-dec=itemnumbertag">-->
+
+                                        <!--<span class="glyphicon glyphicon-minus"></span>-->
+                                        <!--</button>-->
+                                    </span>
+
+                                    <input type="text" id="quantity" name="quantity"
+                                           class="text-field form-control input-number"
+                                           value="1" min="1" max="1000" data-dis="itemnumbertag">
+
+                                    <span class="input-group-btn">
+                                        <button type="button"
+                                                class="btn-inc-class quantity-right-plus btn btn-success btn-number"
+                                                data-inc="itemnumbertag">
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                    </span>
+
+                                </div>
+                                            </span>
+
+                        </div>
+                    </div>
+
+
+                    <div class="ee snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+
+                        <!--<input type="button" data-id="itemnumbertag" class="button  l mm" id="itemnumbertag"-->
+                        <!--value="Add to cart" onclick="functionplace">-->
+
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--</div>-->
+
+    </script>
+
+
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+
+
+        <div class="col-md-3 left_col" style="position:fixed">
+            <div class="left_col scroll-view">
+
+                <div class="clearfix"></div>
+
+                <!-- menu profile quick info -->
+                <div class="profile clearfix">
+                    <div class="profile_info" style="padding-left:10px">
+                        <span>Welcome,</span>
+                        <h1>{{request.session.unm}}</h1>
+                    </div>
+                </div>
+                <!-- /menu profile quick info -->
+
+                <br/>
+
+                <!-- sidebar menu -->
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section">
+                        <ul class="nav side-menu">
+                            <li><a><i class="fa fa-tasks"></i> Category <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="/client/choose" class="cat" data-id="all">All</a></li>
+
+                                    {% for book in ctg %}
+                                    <li><a href="/client/choose" class="cat" data-id="{{book.category}}">{{book.category}}</a></li>
+                                    {% endfor %}
+
+                                </ul>
+                            </li>
+
+                            <li><a href="/client/placeorder"><i class="fa fa-home"></i> PlaceOrder </a>
+                            </li>
+
+
+                            <li><a href="/client/history"><i class="fa fa-history"></i> History </a>
+                            </li>
+
+
+                            <li><a href="/client/changepassword"><i class="fa fa-unlock-alt"></i> Change Password </a>
+                            </li>
+
+                            <li><a href="/client/logout"><i class="fa fa-sign-out"></i> Logout </a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+
+                </div>
+                <!-- /sidebar menu -->
+
+            </div>
+        </div>
+
+
+        <div class="top_nav">
+            <div class="nav_menu">
+                <nav>
+                    <div class="nav toggle" style="height:55px">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+
+                    </div>
+<div align="right" style="padding-right:5%"><a  href="/client/placeorder"><i style="display:none"  class="cartdisp fa fa-shopping-cart fa-3x"></i></a><span class="dylistitem badge bg-green" style="display:none"></span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="right_col" role="main">
+
+            <div class="d_templete row top_tiles">
+            <div class="all-item">
+                    {% for data in querydata %}
+                    <div class="form-group">
+                        <label for="usernm">Username:</label>
+                        <input type="text" class="form-control" id="usernm" name="usernm" value="{{data.username}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="first_name">First Name:</label>
+                        <input type="text" class="form-control" id="first_name" name="first_name"
+                               value="{{data.firstname}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name">Last Name:</label>
+                        <input type="text" class="form-control" id="last_name" name="last_name"
+                               value="{{data.lastname}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-email">Email ID:</label>
+                        <input type="text" class="form-control" id="reg-email" name="reg-email"
+                               value="{{data.emailid}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="mno">Mobile No:</label>
+                        <input type="text" class="form-control" id="mno" name="mno" value="{{data.mobileno}}">
+                    </div>
+                    <button type="submit" class="btn btn-info" id="editprofile">Edit Profile</button>
+                    {%endfor%}
+                </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="{%static 'js/jquery.min.js'%}"></script>
+<script type="text/javascript" src="{%static 'js/bootstrap.min.js'%}"></script>
+<script type="text/javascript" src="{%static 'js/custom.min.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+<script type="text/javascript" src="{%static 'js/category.js'%}"></script>
+
+<script type="text/javascript" src="{% static 'js/chngpwd.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jslogin.js' %}"></script>
+<script type="text/javascript" src="{%static 'js/js_additem.js'%}"></script>
+<script type="text/javascript" src="{%static 'js/popupjs.js'%}"></script>
+</body>
+</html>
+

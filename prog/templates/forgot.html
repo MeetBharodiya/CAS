@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FORGET PASSWORD</title>
+</head>
+<body>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}><font size="15"> {{ message }}</font></li>
+    {% endfor %}
+</ul>
+{% endif %}
+<form method="post" action="/prog/fp">
+    {% csrf_token %}
+    <center>
+    <table border="1">
+        <tr>
+            <td>ADMIN ID</td>
+            <td><input type="text" name="unm"></td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+            <center>    <input type="submit" value="get password">
+            </center></td>
+        </tr>
+        <tr>
+
+            <td colspan="2">
+            <center>    <a href="/prog">Login page</a>
+            </center></td>
+        </tr>
+
+
+
+</table>
+        </center>
+    </form>
+</body>
+</html>

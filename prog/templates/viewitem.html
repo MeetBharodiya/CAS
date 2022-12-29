@@ -1,0 +1,278 @@
+
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+<style>
+    #name {
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 28px;
+  line-height: 100px;
+}
+</style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <link rel="icon" href="/static/images/favicon.ico" type="image/ico"/>
+
+    <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/custom.min.css' %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/ss.css' %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/popupmodel.css' %}"/>
+
+
+    <link href="{%static 'fonts/roboto/Roboto-Bold.woff' %}" rel="stylesheet">
+    <link href="{%static 'fonts/roboto/Roboto-Bold.woff2' %}" rel="stylesheet">
+    <link href="{%static 'fonts/roboto/Roboto-Light.woff' %}" rel="stylesheet">
+    <link href="{%static 'fonts/roboto/Roboto-Light.woff2' %}" rel="stylesheet">
+    <link href="{%static 'fonts/roboto/Roboto-Medium.woff' %}" rel="stylesheet">
+    <link href="{%static 'fonts/roboto/Roboto-Medium.woff2' %}" rel="stylesheet">
+    <link href="{%static 'fonts/roboto/Roboto-Regular.woff' %}" rel="stylesheet">
+    <link href="{%static 'fonts/roboto/Roboto-Regular.woff2' %}" rel="stylesheet">
+    <link href="{%static 'fonts/roboto/Roboto-Thin.woff' %}" rel="stylesheet">
+    <link href="{%static 'fonts/roboto/Roboto-Thin.woff2' %}" rel="stylesheet">
+
+
+</head>
+
+<script type="text/template" id="searchviewTemplate">
+
+                <table   class="table table-striped" style="margin-left:-20px" >
+    <tr  >
+            <td style="width:15%;">
+                <center>
+                itemnotag
+            </center>
+            </td>
+            <td style="width:20%">
+            <center>
+                itemnametag
+                </center>
+            </td>
+            <td style="width:15%">
+                <center>
+                    itemcategorytag
+                </center>
+            </td>
+            <td style="width:18%">
+                <center>
+                    <img src="itemimagetag" height="50" width="50"/></center>
+            </td>
+        <td style="width:18%">
+            <center>
+                itempricetag
+            </center>
+        </td>
+        <td class="ee">
+
+
+</script>
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+
+
+        <div class="col-md-3 left_col" style="position:fixed">
+            <div class="left_col scroll-view">
+
+                <div class="clearfix"></div>
+
+                <!-- menu profile quick info -->
+                <div class="profile clearfix">
+                    <div class="profile_info" style="padding-left:10px">
+                        <span>Welcome,</span>
+                        <h1>Admin</h1>
+                    </div>
+                </div>
+                <!-- /menu profile quick info -->
+
+                <br/>
+
+                <!-- sidebar menu -->
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section">
+                        <ul class="nav side-menu">
+                            <li><a href="/prog/additem"><i class="fa fa-tasks"></i>Add Item </a></li>
+                            <li><a href="/prog/viewitem"><i class="fa fa-tasks"></i>view Item </a></li>
+                        <li><a href="/prog/addchef"><i class="fa fa-home"></i>Add Chef</a></li>
+                         <li><a href="/prog/viewchef"><i class="fa fa-home"></i>View Chef</a></li>
+
+                            <li><a href="/prog/vieworder"><i class="fa fa-history"></i> View Order </a>
+                            </li>
+  <li><a href="/prog/viewcustomer"><i class="fa fa-history"></i> View Customer </a>
+                            </li>
+
+
+
+                            <li><a href="/prog/logout"><i class="fa fa-sign-out"></i> Logout </a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+
+                </div>
+                <!-- /sidebar menu -->
+
+            </div>
+        </div>
+
+        <!-- top navigation -->
+
+        <div class="top_nav">
+            <div class="nav_menu">
+                <nav>
+                    <div class="nav toggle" style="height:55px">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+
+                    <div class="container" style="margin-top:5px;">
+                        <div class="row">
+                            <div class="col-xs-8 col-xs-offset-2">
+                                <div class="input-group">
+                                    <div class="input-group-btn search-panel">
+                                        <button type="button" class="btn btn-default dropdown-toggle"
+                                                style="background-color:#5d94cc;font-size:1rem;" data-toggle="dropdown">
+                                            <span id="search_concept">Filter by</span> <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" id="dropDownId" role="menu">
+                                            <li><a href="#contains">itemno</a></li>
+                                            <li><a href="#its_equal">itemname</a></li>
+                                              <li><a href="#its_equal">category</a></li>
+                                      </ul>
+                                    </div>
+                                    <input type="hidden" name="search_param" value="all" id="search_param">
+                                    <input type="text" class="searchtext form-control" name="x"
+                                           placeholder="Search term...">
+                                    <span class="input-group-btn">
+                                        <input type="submit" class="btnsearch btn btn-default" value='search'
+                                               style="background-color:#5d94cc;font-size:1rem;">
+                                        <!--<button class="btnsearch btn btn-default" type="button"-->
+                                        <!--style="background-color:#5d94cc;font-size:1rem;"><span><i class="fa fa-search"-->
+                                        <!--aria-hidden="true"></i></span></button>-->
+                </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </nav>
+            </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="d_templete right_col" role="main">
+            <!-- top tiles -->
+<center>
+ <table class="table table-striped">
+  <thead>
+  <th>Itemno</th>
+    <th>Itemname</th>
+    <th>category</th>
+    <th><center>Image</center></th>
+  <th><center>price</center></th>
+  <th><center>delete</center></th>
+  <th><center>update</center></th>
+  </thead>
+  <tbody>
+
+    {% for item in querydata %}
+    <tr>
+
+        <td>
+
+           {{ item.itemno}}
+
+        </td>
+
+        <td>
+            {{item.itemname}}
+                   </td>
+
+        <td>
+            {{item.category}}
+
+        </td>
+
+        <td><center>
+            <img src="{{item.image}}" height="50" width="50" /></center>
+        </td>
+        <td>
+            <center>
+            {{item.price}}
+            </center>
+        </td>
+        <td><center>
+            <a href="/prog/deleteitem?itemno={{ item.itemno}}" class="btn btn-info">delete</a>
+        </center></td>
+        <td><center>
+            <a href="/prog/updateitem?itemno={{ item.itemno}}" class="btn btn-info">update</a></center>
+        </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+    </center>
+
+
+    </div>
+    <!-- /top tiles -->
+
+    <!-- footer content -->
+    <footer>
+
+        <div class="clearfix"></div>
+    </footer>
+    <!-- /footer content -->
+</div>
+</div>
+
+
+<!-- code for pop up menu-->
+
+
+<!-- modal -->
+<div id="fsModal"
+     class="modal animated bounceIn"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel"
+     aria-hidden="true">
+
+    <!-- dialog -->
+    <div class="modal-dialog">
+
+        <!-- content -->
+        <div class="modal-content">
+
+
+            <!-- body -->
+            <div class="modal-body">
+
+            </div>
+            <!-- body -->
+
+
+        </div>
+        <!-- content -->
+
+    </div>
+    <!-- dialog -->
+
+</div>
+<!-- modal -->
+
+
+<script type="text/javascript" src="{%static 'js/jquery.min.js'%}"></script>
+<script type="text/javascript" src="{%static 'js/bootstrap.min.js'%}"></script>
+<script type="text/javascript" src="{%static 'js/custom.min.js'%}"></script>
+<script type="text/javascript" src="{%static 'js/additem.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/loginjs.js' %}"></script>
+<script type="text/javascript" src="{%static 'js/popupjs.js'%}"></script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Admin login</title>
+
+{%load static %}
+      <script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+         <link rel="stylesheet" href="{% static 'css/logincss.css' %}" type="text/css" />
+          <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}" type="text/css" />
+      <script type="text/javascript" src="{% static 'js/loginjs.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+
+
+</head>
+
+<body>
+<!--{% if messages %}-->
+<!--<ul class="messages">-->
+    <!--{% for message in messages %}-->
+    <!--<li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>-->
+    <!--{% endfor %}-->
+<!--</ul>-->
+<!--{% endif %}-->
+
+<!--<label>{{status}}</label>-->
+
+
+
+  <div class="section"> </div>
+  <main>
+    <center>
+
+      <div class="section"></div>
+
+      <div class="container">
+
+        <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+
+            <h5 class="indigo-text">ADMIN</h5>
+
+
+          <div class="col s12">
+            <div class='row' >
+              <div class='col s12' >
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='input-field col s12' style="width:300px">
+                <input class='validate' type='email' name='email' id='email'/>
+                <label for='email'>Enter your email</label>
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='input-field col s12'>
+                <input class='validate' type='password' name='password' id='password' />
+                <label for='password'>Enter your password</label>
+              </div>
+
+            </div>
+
+            <br />
+            <center>
+              <div class='row'>
+                <button type='submit' id="login_btn1" class='col s12 btn btn-large waves-effect indigo'>Login</button>
+              </div>
+            </center>
+
+        </div>
+        </div></div>
+    </center>
+
+    <div class="section"></div>
+    <div class="section"></div>
+  </main>
+
+
+</body>
+</html>

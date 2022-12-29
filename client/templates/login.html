@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<h2><center>CUSTOMER</center>
+	</h2>
+
+
+{%load static%}
+
+      <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}" />
+         <link rel="stylesheet" href="{% static 'css/loginpage_css.css' %}" type="text/css" />
+
+ 		<script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/jslogin.js' %}"></script>
+
+
+</head>
+
+<body>
+
+<div class="container white z-depth-2">
+
+	<ul class="tabs teal">
+		<li class="tab col s3"><a class="white-text active" style="padding-right:118px;text-align:center;" href="#login">login</a></li>
+		<li class="tab col s3"><a class="white-text" style="padding-right:127px" href="#register">register</a></li>
+	</ul>
+	<div id="login" class="col s12" >
+		<div class="col s12">
+			<div class="form-container">
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="email" name="login_email" type="text" class="validate" >
+						<label for="email">Email or Username</label>
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="password" type="password" name="login_password" class="validate">
+						<label for="password">Password</label>
+					</div>
+				</div>
+				<br>
+				<center>
+					<button class="btn waves-effect waves-light teal" type="submit" id="login_btn" name="action">Connect</button>
+					<input type="hidden" value="login" name="type_form">
+					<br>
+					<br>
+					<a href="/client/forgetpassword">Forgotten password?</a>
+				</center>
+			</div>
+        </div>
+    </div>
+
+<div id="register" class="col s12">
+		<!--<form class="col s12">-->
+			<div class="form-container">
+				<h3 class="teal-text">Welcome</h3>
+				<div class="row">
+					<div class="input-field col s6">
+						<input id="first_name" type="text" class="validate" >
+						<label for="first_name">First Name</label>
+
+					</div>
+					<div class="input-field col s6">
+						<input id="last_name" type="text" class="validate">
+						<label for="last_name">Last Name</label>
+					</div>
+				</div>
+
+
+                <div class="row">
+					<div class="input-field col s6">
+						<input id="usernm" type="text" class="validate" >
+						<label for="usernm">Usernm</label>
+					</div>
+                    <div class="input-field col s6">
+						<input id="mno" type="text" class="validate">
+						<label for="mno">Phone No</label>
+					</div>
+		</div>
+
+
+
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="reg-email" type="email" class="validate" >
+						<label for="reg-email">Email</label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="reg-password" type="password" class="validate" >
+						<label for="reg-password">Password</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="password-confirm" type="password" class="validate" >
+						<label for="password-confirm">Password Confirmation</label>
+					</div>
+				</div>
+				<center>
+					<button class="btn waves-effect waves-light teal" type="submit" id="registration" >Registration</button>
+				</center>
+			</div>
+		<!--</form>-->
+	</div>
+</form>
+</div>
+
+
+</form>
+</body>
+</html>
